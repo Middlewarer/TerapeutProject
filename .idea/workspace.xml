@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cfc31a52-bcf8-4cec-8a9c-7885f1541f7c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terapeutdjango/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/terapeutdjango/asgi.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/consult_buy/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rent_consult/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terapeutdjango/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/terapeutdjango/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/terapeutdjango/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/terapeutdjango/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/terapeutdjango/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/terapeutdjango/wsgi.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -35,7 +42,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "feature/rent__consult",
     "last_opened_file_path": "C:/bill_projects/TerapeutProject"
   }
 }]]></component>
