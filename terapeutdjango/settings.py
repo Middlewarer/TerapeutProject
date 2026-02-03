@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #added
-    'consult_buy.apps.ConsultBuyConfig',
     'rent_consult.apps.RentConsultConfig'
 ]
 
@@ -124,3 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
