@@ -68,7 +68,7 @@ body::before {
   z-index: 0;
 }
 
-/* Контент плотнее на десктопе */
+/* Контент плотнее на десктопе — только max-width и боковые отступы, не трогаем display Bootstrap */
 .container {
   max-width: 1120px;
 }
@@ -252,6 +252,23 @@ button:focus-visible {
   }
 }
 
+/* Компактная шапка на мобилке: одна строка (бренд + бургер) */
+@media (max-width: 576px) {
+  .site-header .header-row {
+    min-height: 52px;
+    padding: 0.45rem 0;
+    flex-direction: row;
+    align-items: center;
+  }
+  .brand-name {
+    font-size: 0.95rem;
+    line-height: 1.1;
+  }
+  .brand-sub {
+    font-size: 0.72rem;
+  }
+}
+
 /* ===== Главный блок (Hero) ===== */
 .hero {
   position: relative;
@@ -264,6 +281,20 @@ button:focus-visible {
     radial-gradient(ellipse 70vw 45vmin at 25% 30%, rgba(139, 122, 168, 0.10), transparent 55%),
     linear-gradient(180deg, var(--page-bg) 0%, rgba(251, 250, 248, 0) 100%);
   border-bottom: 1px solid rgba(232, 228, 223, 0.8);
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding-top: 4.25rem;
+    min-height: auto;
+  }
+  .min-vh-75 {
+    min-height: auto !important;
+  }
+  .hero .py-5 {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
 }
 
 .hero-bg {
@@ -326,6 +357,21 @@ button:focus-visible {
   animation: fadeInUp 0.8s ease 0.25s both;
 }
 
+@media (max-width: 576px) {
+  .hero-cta {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .hero-cta .btn,
+  .hero .btn-hero,
+  .hero .btn-outline-primary {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0.85rem 1.1rem;
+  }
+}
+
 .trust-row {
   display: flex;
   flex-wrap: wrap;
@@ -341,6 +387,16 @@ button:focus-visible {
   border: 1px solid rgba(232, 228, 223, 0.9);
   color: var(--color-text-soft);
   font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  .trust-row {
+    gap: 0.4rem;
+  }
+  .trust-pill {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.65rem;
+  }
 }
 
 .hero-media {
