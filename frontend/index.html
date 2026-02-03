@@ -33,9 +33,14 @@
       <div class="container position-relative">
         <div class="row align-items-center min-vh-75 py-5">
           <div class="col-lg-7">
+            <p class="hero-badges">Индивидуально • Берёжно • Структурно • С опорой на практики</p>
             <h1 class="hero-title">Консультации с поддержкой и ясностью</h1>
             <p class="hero-lead">Краткое описание формата работы: индивидуальные сессии, пакеты консультаций и доступ к материалам для закрепления результата. Здесь вы найдёте опору и инструменты для изменений.</p>
-            <a class="btn btn-hero" href="#tariffs">Выбрать пакет</a>
+            <div class="hero-cta">
+              <a class="btn btn-hero" href="#tariffs">Выбрать пакет</a>
+              <a class="btn btn-outline-primary btn-hero-secondary" href="#contact">Бесплатная пробная консультация</a>
+            </div>
+            <p class="hero-note">Конфиденциально • 50 минут • Онлайн • Ответ в течение 24 часов</p>
           </div>
           <div class="col-lg-5 d-none d-lg-block">
             <div class="photo-placeholder hero-photo" aria-hidden="true">Фото для блока</div>
@@ -105,7 +110,7 @@
       </div>
     </section>
 
-    <section id="about" class="section about">
+    <section id="about" class="section about" itemscope itemtype="https://schema.org/Person">
       <div class="container">
         <h2 class="section-title">Кто ведёт консультации</h2>
         <div class="row align-items-center g-4">
@@ -113,7 +118,7 @@
             <div class="photo-placeholder photo-profile" aria-hidden="true">Фото психолога</div>
           </div>
           <div class="col-lg-8">
-            <p class="about-lead">Елена Батурина — практикующий психолог с опытом индивидуального и группового консультирования.</p>
+            <p class="about-lead"><span itemprop="name">Елена Батурина</span> — <span itemprop="jobTitle">практикующий психолог</span> с опытом индивидуального и группового консультирования.</p>
             <p>Образование и повышение квалификации в области психологии. Работа в интегративном подходе: опора на ваши цели и запрос, использование проверенных методов и адаптация под вашу ситуацию.</p>
             <p>В консультациях важны безопасная атмосфера, честный диалог и пошаговое движение к результату. Здесь можно разобрать сложные переживания, отношения, самооценку и жизненные выборы.</p>
             <a class="btn btn-outline-primary mt-3" href="#contact">Записаться на консультацию</a>
@@ -158,7 +163,12 @@
             <div class="card tariff-card h-100">
               <div class="card-body">
                 <h3 class="h4 card-title">Пробная консультация</h3>
-                <p class="tariff-desc">Знакомство, формулировка запроса и обсуждение формата работы.</p>
+                <p class="tariff-desc">Знакомство, формулировка запроса и обсуждение формата работы. Кому подходит: тем, кто хочет познакомиться перед покупкой пакета.</p>
+                <ul class="tariff-list">
+                  <li>1 встреча 50 минут</li>
+                  <li>Обсуждение запроса и целей</li>
+                  <li>Рекомендация формата работы</li>
+                </ul>
                 <p class="tariff-price">Бесплатно</p>
                 <a class="btn btn-outline-primary w-100" href="#contact">Бесплатная пробная консультация</a>
               </div>
@@ -166,9 +176,16 @@
           </article>
           <article class="col-md-6 col-lg-4">
             <div class="card tariff-card tariff-featured h-100">
+              <span class="tariff-badge">Рекомендуем</span>
               <div class="card-body">
                 <h3 class="h4 card-title">Пакет консультаций</h3>
-                <p class="tariff-desc">Несколько встреч по программе + доступ к материалам.</p>
+                <p class="tariff-desc">Несколько встреч по программе + доступ к материалам. Кому подходит: тем, кто готов к циклу сессий и закреплению результата.</p>
+                <ul class="tariff-list">
+                  <li>4 сессии по 50 минут</li>
+                  <li>Материалы между встречами</li>
+                  <li>Поддержка в канале</li>
+                  <li>Итоговый план шагов</li>
+                </ul>
                 <p class="tariff-price">от 15 000 ₽</p>
                 <a class="btn btn-primary w-100" href="#contact">Оплатить пакет</a>
               </div>
@@ -178,7 +195,12 @@
             <div class="card tariff-card h-100">
               <div class="card-body">
                 <h3 class="h4 card-title">Аренда времени / запись</h3>
-                <p class="tariff-desc">Запись на консультацию в удобное время из доступных слотов.</p>
+                <p class="tariff-desc">Запись на консультацию в удобное время из доступных слотов. Кому подходит: для разовой встречи или гибкого графика.</p>
+                <ul class="tariff-list">
+                  <li>1 консультация 50 минут</li>
+                  <li>Выбор слота из доступных</li>
+                  <li>Онлайн или офлайн</li>
+                </ul>
                 <p class="tariff-price">от 5 000 ₽</p>
                 <a class="btn btn-outline-primary w-100" href="#contact">Записаться</a>
               </div>
@@ -188,6 +210,63 @@
         <p class="text-center mt-4">
           <a class="btn btn-telegram" href="https://t.me/example_channel" target="_blank" rel="noopener">Перейти в Telegram-канал</a>
         </p>
+      </div>
+    </section>
+
+    <section id="reviews" class="section reviews">
+      <div class="container">
+        <h2 class="section-title">Отзывы и опыт</h2>
+        <p class="section-intro">Краткие отзывы и факты о подходе для формирования доверия.</p>
+        <div class="row g-4 mb-5">
+          <article class="col-md-4">
+            <div class="card card-soft h-100">
+              <div class="card-body">
+                <p class="review-text">«Помогла структурировать мысли и увидеть варианты. После цикла сессий стало понятнее, куда двигаться.»</p>
+                <p class="review-meta">— Клиент, запрос по выбору направления</p>
+              </div>
+            </div>
+          </article>
+          <article class="col-md-4">
+            <div class="card card-soft h-100">
+              <div class="card-body">
+                <p class="review-text">«Работали с тревогой и границами. Получила конкретные инструменты и поддержку между встречами.»</p>
+                <p class="review-meta">— Клиент, пакет консультаций</p>
+              </div>
+            </div>
+          </article>
+          <article class="col-md-4">
+            <div class="card card-soft h-100">
+              <div class="card-body">
+                <p class="review-text">«Спокойная атмосфера и понятная структура. Рекомендую тем, кто готов разбираться по шагам.»</p>
+                <p class="review-meta">— Клиент, разовые консультации</p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="stats-card">
+              <p class="stats-value">5+ лет</p>
+              <p class="stats-label">практики в психологии</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="stats-card">
+              <p class="stats-value">500+ часов</p>
+              <p class="stats-label">индивидуальных консультаций</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="values-list">
+              <p class="values-title">Подход и ценности</p>
+              <ul>
+                <li>Безопасность и конфиденциальность</li>
+                <li>Опора на ваши цели и темп</li>
+                <li>Практики с доказанной эффективностью</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -216,16 +295,16 @@
     </section>
   </main>
 
-  <footer id="contact" class="site-footer">
+  <footer id="contact" class="site-footer" itemscope itemtype="https://schema.org/LocalBusiness">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
-          <p class="footer-brand">Елена Батурина</p>
-          <p class="footer-desc">Практикующий психолог. Консультации и пакеты программ.</p>
+          <p class="footer-brand" itemprop="name">Елена Батурина</p>
+          <p class="footer-desc" itemprop="description">Практикующий психолог. Консультации и пакеты программ.</p>
         </div>
         <div class="col-lg-4">
           <h3 class="h6 footer-heading">Реквизиты</h3>
-          <p class="footer-text">ИП Батурина Елена [Имя Отчество]<br>ИНН: 000000000000<br>ОГРН: 0000000000000<br>E-mail: example@example.com</p>
+          <p class="footer-text">ИП Батурина Елена [Имя Отчество]<br>ИНН: 000000000000<br>ОГРН: 0000000000000<br>E-mail: <a href="mailto:example@example.com" itemprop="email">example@example.com</a></p>
         </div>
         <div class="col-lg-4">
           <h3 class="h6 footer-heading">Ссылки</h3>
