@@ -14,17 +14,35 @@
 </head>
 <body>
   <header class="site-header">
-    <nav class="navbar navbar-light">
-      <div class="container">
-        <a class="navbar-brand" href="#hero">Елена Батурина — практикующий психолог</a>
-        <ul class="navbar-nav nav-menu">
-          <li class="nav-item"><a class="nav-link" href="#for-who">Для кого</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about">Об авторе</a></li>
-          <li class="nav-item"><a class="nav-link" href="#program">Программа</a></li>
-          <li class="nav-item"><a class="nav-link" href="#tariffs">Тарифы</a></li>
-        </ul>
+    <div class="container header-row">
+      <a class="brand" href="#hero">
+        <span class="brand-name">Елена Батурина</span>
+        <span class="brand-sub">практикующий психолог</span>
+      </a>
+
+      <nav class="nav-inline" aria-label="Навигация">
+        <a href="#for-who">Для кого</a>
+        <a href="#about">Об авторе</a>
+        <a href="#program">Программа</a>
+        <a href="#tariffs">Тарифы</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn-outline-primary btn-sm" href="#tariffs">Тарифы</a>
+        <a class="btn btn-hero btn-sm" href="#contact">Записаться</a>
+
+        <details class="nav-details">
+          <summary class="burger" aria-label="Открыть меню"></summary>
+          <nav class="nav-sheet" aria-label="Меню">
+            <a href="#for-who">Для кого</a>
+            <a href="#about">Об авторе</a>
+            <a href="#program">Программа</a>
+            <a href="#tariffs">Тарифы</a>
+            <a class="nav-cta" href="#contact">Записаться</a>
+          </nav>
+        </details>
       </div>
-    </nav>
+    </div>
   </header>
 
   <main>
@@ -40,10 +58,17 @@
               <a class="btn btn-hero" href="#tariffs">Выбрать пакет</a>
               <a class="btn btn-outline-primary btn-hero-secondary" href="#contact">Бесплатная пробная консультация</a>
             </div>
-            <p class="hero-note">Конфиденциально • 50 минут • Онлайн • Ответ в течение 24 часов</p>
+            <div class="trust-row">
+              <span class="trust-pill">Конфиденциально</span>
+              <span class="trust-pill">50 минут</span>
+              <span class="trust-pill">Онлайн</span>
+              <span class="trust-pill">Ответ 24 часа</span>
+            </div>
           </div>
           <div class="col-lg-5 d-none d-lg-block">
-            <div class="photo-placeholder hero-photo" aria-hidden="true">Фото для блока</div>
+            <div class="hero-media">
+              <div class="photo-placeholder hero-photo" aria-hidden="true">Фото для блока</div>
+            </div>
           </div>
         </div>
       </div>
@@ -154,7 +179,7 @@
       </div>
     </section>
 
-    <section id="tariffs" class="section tariffs">
+    <section id="tariffs" class="section tariffs is-accent">
       <div class="container">
         <h2 class="section-title">Выбор пакета</h2>
         <p class="section-intro">Выберите удобный формат: пакет консультаций, разовая запись или доступ к записям практик.</p>
@@ -213,7 +238,7 @@
       </div>
     </section>
 
-    <section id="reviews" class="section reviews">
+    <section id="reviews" class="section reviews is-accent">
       <div class="container">
         <h2 class="section-title">Отзывы и опыт</h2>
         <p class="section-intro">Краткие отзывы и факты о подходе для формирования доверия.</p>
