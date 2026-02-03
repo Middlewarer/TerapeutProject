@@ -519,6 +519,12 @@ button:focus-visible {
   margin: 0 auto var(--space-5);
 }
 
+.section-subtitle {
+  margin: 0;
+  color: var(--color-text-soft);
+  font-size: 0.95rem;
+}
+
 /* Карточки «Для кого» ===== */
 .card-soft {
   border: 1px solid rgba(232, 228, 223, 0.85);
@@ -547,6 +553,71 @@ button:focus-visible {
   color: var(--color-text-soft);
   font-size: 0.95rem;
   margin: 0;
+}
+
+/* Форма записи ===== */
+.form-card {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.consult-form label {
+  display: block;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0.45rem;
+}
+
+.consult-form input,
+.consult-form select,
+.consult-form textarea {
+  width: 100%;
+  border: 1px solid rgba(232, 228, 223, 0.9);
+  border-radius: 14px;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  outline: none;
+}
+
+.consult-form input:focus,
+.consult-form select:focus,
+.consult-form textarea:focus {
+  border-color: rgba(139, 122, 168, 0.45);
+  box-shadow: 0 0 0 4px rgba(139, 122, 168, 0.14);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.form-field--full {
+  grid-column: 1 / -1;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 1.2rem;
+}
+
+.form-note {
+  margin: 0;
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-actions .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Преимущества ===== */
@@ -904,6 +975,103 @@ button:focus-visible {
   text-align: center;
   font-size: 0.85rem;
   color: rgba(250, 248, 246, 0.7);
+}
+
+/* Модальное окно оплаты (CSS-only, через :target) ===== */
+.modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 100;
+}
+
+.modal:target {
+  display: block;
+}
+
+.modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 18, 16, 0.45);
+}
+
+.modal__dialog {
+  position: relative;
+  width: min(560px, 92vw);
+  margin: 10vh auto;
+  background: var(--surface, #fff);
+  border: 1px solid rgba(232, 228, 223, 0.9);
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid rgba(232, 228, 223, 0.8);
+  background: rgba(251, 250, 248, 0.7);
+}
+
+.modal__title {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.modal__close {
+  text-decoration: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(232, 228, 223, 0.9);
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.modal__body {
+  padding: 1.1rem;
+}
+
+.modal__summary {
+  margin: 1rem 0;
+  padding: 0.9rem;
+  border-radius: 14px;
+  background: rgba(139, 122, 168, 0.06);
+  border: 1px solid rgba(139, 122, 168, 0.14);
+}
+
+.sum-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.35rem 0;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+
+.modal__hint {
+  margin: 0.9rem 0 0;
+  color: var(--color-text-soft);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 576px) {
+  .modal__dialog {
+    margin: 8vh auto;
+  }
+  .modal__actions a {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* ===== Анимации (только CSS) ===== */

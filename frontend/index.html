@@ -212,7 +212,7 @@
                   <li>Итоговый план шагов</li>
                 </ul>
                 <p class="tariff-price">от 15 000 ₽</p>
-                <a class="btn btn-primary w-100" href="#contact">Оплатить пакет</a>
+                <a class="btn btn-hero w-100" href="#pay-package">Оплатить пакет</a>
               </div>
             </div>
           </article>
@@ -295,6 +295,60 @@
       </div>
     </section>
 
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-intro">
+          <h2 class="section-title">Запись на бесплатную пробную консультацию</h2>
+          <p class="section-subtitle">
+            Оставьте контакты — я отвечу в течение 24 часов и предложу ближайшее доступное время.
+          </p>
+        </div>
+
+        <div class="card-soft form-card">
+          <form class="consult-form" action="#" method="post">
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="name">Имя</label>
+                <input id="name" name="name" type="text" placeholder="Например, Анна" required autocomplete="name">
+              </div>
+
+              <div class="form-field">
+                <label for="contact_way">Способ связи</label>
+                <select id="contact_way" name="contact_way" required>
+                  <option value="" selected disabled>Выберите…</option>
+                  <option value="telegram">Telegram</option>
+                  <option value="phone">Телефон</option>
+                  <option value="email">Email</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="contact_value">Контакт</label>
+                <input id="contact_value" name="contact_value" type="text" placeholder="@username / +7… / email" required>
+              </div>
+
+              <div class="form-field">
+                <label for="topic">Коротко о запросе</label>
+                <input id="topic" name="topic" type="text" placeholder="Тревожность, отношения, выгорание…">
+              </div>
+
+              <div class="form-field form-field--full">
+                <label for="message">Комментарий (необязательно)</label>
+                <textarea id="message" name="message" rows="5" placeholder="Что важно учесть?"></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-hero" type="submit">Отправить заявку</button>
+              <p class="form-note">
+                Нажимая кнопку, вы соглашаетесь на обработку персональных данных.
+              </p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section id="faq" class="section faq">
       <div class="container">
         <h2 class="section-title">Частые вопросы</h2>
@@ -320,7 +374,48 @@
     </section>
   </main>
 
-  <footer id="contact" class="site-footer" itemscope itemtype="https://schema.org/LocalBusiness">
+  <div class="modal" id="pay-package" aria-hidden="true">
+    <div class="modal__overlay" aria-label="Закрыть" tabindex="-1"></div>
+
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pay-title">
+      <div class="modal__head">
+        <h3 id="pay-title" class="modal__title">Оплата пакета консультаций</h3>
+        <a class="modal__close" href="#tariffs" aria-label="Закрыть">×</a>
+      </div>
+
+      <div class="modal__body">
+        <p class="modal__text">
+          Проверьте детали перед оплатой. После оплаты я свяжусь с вами для согласования расписания.
+        </p>
+
+        <div class="modal__summary">
+          <div class="sum-row">
+            <span>Продукт</span>
+            <strong>Пакет консультаций</strong>
+          </div>
+          <div class="sum-row">
+            <span>Формат</span>
+            <strong>4 встречи × 50 минут</strong>
+          </div>
+          <div class="sum-row">
+            <span>Стоимость</span>
+            <strong>от 15 000 ₽</strong>
+          </div>
+        </div>
+
+        <div class="modal__actions">
+          <a class="btn btn-hero" href="#" aria-disabled="true">Перейти к оплате</a>
+          <a class="btn btn-outline-primary" href="#tariffs">Вернуться к тарифам</a>
+        </div>
+
+        <p class="modal__hint">
+          Кнопка оплаты пока заглушка — сюда будет подставлен URL платёжной системы.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer" class="site-footer" itemscope itemtype="https://schema.org/LocalBusiness">
     <div class="container">
       <div class="row g-4">
         <div class="col-lg-4">
