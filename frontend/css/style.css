@@ -20,12 +20,12 @@
   --space-3: 1.5rem;
   --space-4: 2.25rem;
   --space-5: 3rem;
-  /* Фон страницы: база + пятна */
-  --page-bg: #fbfaf8;
+  /* Фон страницы: база + "DVD" свечения */
+  --bg-base: #fbfaf8;
   --surface: #ffffff;
-  --spot-1: rgba(139, 122, 168, 0.12);
-  --spot-2: rgba(210, 198, 220, 0.14);
-  --spot-3: rgba(184, 169, 201, 0.10);
+  --glow-pink: rgba(255, 105, 180, 0.12);
+  --glow-red: rgba(255, 80, 80, 0.10);
+  --glow-white: rgba(255, 255, 255, 0.55);
 }
 
 *,
@@ -44,28 +44,43 @@ body {
   line-height: 1.6;
   letter-spacing: 0.1px;
   color: var(--color-text);
-  background:
-    radial-gradient(900px 520px at 15% 12%, rgba(139, 122, 168, 0.10), transparent 60%),
-    radial-gradient(740px 480px at 85% 28%, rgba(210, 198, 220, 0.12), transparent 55%),
-    var(--page-bg);
+  background: var(--bg-base);
+  position: relative;
   margin: 0;
   min-height: 100vh;
 }
 
-body::before {
+body::before,
+body::after {
   content: "";
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 420px;
+  inset: -20vmax;
   pointer-events: none;
-  background-image: radial-gradient(rgba(139, 122, 168, 0.10) 1px, transparent 1px);
-  background-size: 26px 26px;
-  opacity: 0.1;
-  mask-image: linear-gradient(to bottom, #000, transparent 70%);
-  -webkit-mask-image: linear-gradient(to bottom, #000, transparent 70%);
-  z-index: 0;
+  z-index: -1;
+  filter: blur(18px);
+  opacity: 0.95;
+  transform: translate3d(0, 0, 0);
+}
+
+body::before {
+  background:
+    radial-gradient(closest-side, var(--glow-pink), transparent 70%),
+    radial-gradient(closest-side, var(--glow-white), transparent 72%);
+  width: 55vmax;
+  height: 55vmax;
+  left: -10vmax;
+  top: -10vmax;
+  animation: dvdFloatA 26s ease-in-out infinite alternate;
+}
+
+body::after {
+  background:
+    radial-gradient(closest-side, var(--glow-red), transparent 70%);
+  width: 48vmax;
+  height: 48vmax;
+  left: 60vmax;
+  top: 10vmax;
+  animation: dvdFloatB 32s ease-in-out infinite alternate;
 }
 
 /* Контент плотнее на десктопе — только max-width и боковые отступы, не трогаем display Bootstrap */
@@ -118,8 +133,8 @@ button:focus-visible {
   text-decoration: none;
   color: inherit;
   display: inline-flex;
-  flex-direction: column;
-  line-height: 1.05;
+  align-items: center;
+  gap: 0.75rem;
   font-family: var(--font-heading);
   transition: color var(--transition);
 }
@@ -132,6 +147,12 @@ button:focus-visible {
   color: var(--color-accent);
 }
 
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
 .brand-name {
   font-weight: 600;
   font-size: 1rem;
@@ -142,6 +163,16 @@ button:focus-visible {
   color: var(--color-text-soft);
   margin-top: 0.15rem;
   transition: color var(--transition);
+}
+
+.brand-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 25px rgba(45, 42, 38, 0.12);
+  background: #fff;
 }
 
 .nav-inline {
@@ -266,6 +297,10 @@ button:focus-visible {
   }
   .brand-sub {
     font-size: 0.72rem;
+  }
+  .brand-avatar {
+    width: 38px;
+    height: 38px;
   }
 }
 
@@ -454,9 +489,19 @@ button:focus-visible {
 .hero-photo {
   aspect-ratio: 4 / 5;
   min-height: 320px;
+  border-radius: 20px;
+  overflow: hidden;
   border: 1px solid rgba(232, 228, 223, 0.9);
-  box-shadow: 0 20px 60px rgba(45, 42, 38, 0.06);
+  box-shadow: 0 20px 60px rgba(45, 42, 38, 0.08);
+  background: #fff;
   animation: fadeIn 1s ease 0.3s both;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .photo-wide {
@@ -468,6 +513,26 @@ button:focus-visible {
   aspect-ratio: 1;
   max-width: 280px;
   border-radius: 50%;
+}
+
+.media-box {
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(232, 228, 223, 0.9);
+  background: #fff;
+  box-shadow: 0 18px 55px rgba(45, 42, 38, 0.06);
+}
+
+.media-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.media-box--square img {
+  aspect-ratio: 1 / 1;
 }
 
 /* ===== Секции ===== */
@@ -559,37 +624,63 @@ button:focus-visible {
 .form-card {
   max-width: 920px;
   margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.consult-form,
+.consult-form * {
+  box-sizing: border-box;
 }
 
 .consult-form label {
   display: block;
+  margin: 0 0 8px;
   font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 0.45rem;
+  font-size: 0.92rem;
 }
 
 .consult-form input,
 .consult-form select,
 .consult-form textarea {
   width: 100%;
-  border: 1px solid rgba(232, 228, 223, 0.9);
+  font: inherit;
+  color: var(--color-text);
   border-radius: 14px;
-  padding: 0.85rem 1rem;
-  background: rgba(255, 255, 255, 0.85);
-  outline: none;
+  border: 1px solid rgba(232, 228, 223, 0.95);
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.consult-form input,
+.consult-form select {
+  height: 52px;
+  padding: 0 16px;
+  line-height: 52px;
+}
+
+.consult-form textarea {
+  min-height: 160px;
+  padding: 14px 16px;
+  line-height: 1.45;
+  resize: vertical;
 }
 
 .consult-form input:focus,
 .consult-form select:focus,
 .consult-form textarea:focus {
-  border-color: rgba(139, 122, 168, 0.45);
+  outline: none;
+  border-color: rgba(139, 122, 168, 0.55);
   box-shadow: 0 0 0 4px rgba(139, 122, 168, 0.14);
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: 18px 18px;
+  align-items: start;
+}
+
+.form-field {
+  margin: 0;
 }
 
 .form-field--full {
@@ -598,21 +689,44 @@ button:focus-visible {
 
 .form-actions {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  gap: 0.9rem;
-  margin-top: 1.2rem;
+  gap: 12px;
+  margin-top: 18px;
+  width: 100%;
 }
 
 .form-note {
   margin: 0;
   color: var(--color-text-soft);
-  font-size: 0.9rem;
+  font-size: 0.88rem;
+  text-align: center;
+  max-width: 520px;
+  line-height: 1.4;
+}
+
+.consult-form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 44px;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(60, 55, 52, 0.55) 50%),
+    linear-gradient(135deg, rgba(60, 55, 52, 0.55) 50%, transparent 50%);
+  background-position:
+    right 18px center,
+    right 12px center;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
 }
 
 @media (max-width: 576px) {
   .form-grid {
     grid-template-columns: 1fr;
+  }
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
   }
   .form-actions .btn {
     width: 100%;
@@ -1102,6 +1216,22 @@ button:focus-visible {
   }
 }
 
+@keyframes dvdFloatA {
+  0% { transform: translate(0vw, 0vh) scale(1); }
+  28% { transform: translate(58vw, 18vh) scale(1.05); }
+  55% { transform: translate(18vw, 54vh) scale(0.98); }
+  78% { transform: translate(70vw, 62vh) scale(1.06); }
+  100% { transform: translate(32vw, 22vh) scale(1.02); }
+}
+
+@keyframes dvdFloatB {
+  0% { transform: translate(0vw, 0vh) scale(1); }
+  25% { transform: translate(-40vw, 22vh) scale(1.03); }
+  52% { transform: translate(-10vw, 58vh) scale(0.97); }
+  80% { transform: translate(-55vw, 44vh) scale(1.05); }
+  100% { transform: translate(-22vw, 10vh) scale(1.01); }
+}
+
 /* Появление секций при скролле (если браузер поддерживает) ===== */
 .section {
   opacity: 1;
@@ -1118,4 +1248,11 @@ button:focus-visible {
   .for-who article:nth-child(2) .card-soft { animation-delay: 0.1s; }
   .for-who article:nth-child(3) .card-soft { animation-delay: 0.15s; }
   .for-who article:nth-child(4) .card-soft { animation-delay: 0.2s; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    animation: none;
+  }
 }
